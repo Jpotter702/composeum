@@ -7,7 +7,7 @@ export const sampleComposes = [
     tags: ['postgresql', 'database', 'admin', 'sql'],
     author: 'John Doe',
     createdAt: '2 days ago',
-    thumbnail: '/src/assets/thumbnails/postgresql-pgadmin.png',
+    thumbnail: '/assets/thumbnails/postgresql-pgadmin.png',
     dockerCompose: `version: '3.8'
 services:
   postgres:
@@ -42,7 +42,7 @@ volumes:
     tags: ['nginx', 'proxy', 'ssl', 'load-balancer'],
     author: 'Jane Smith',
     createdAt: '1 week ago',
-    thumbnail: '/src/assets/thumbnails/nginx-proxy.png',
+    thumbnail: '/assets/thumbnails/nginx-proxy.png',
     dockerCompose: `version: '3.8'
 services:
   nginx:
@@ -63,7 +63,7 @@ services:
     tags: ['redis', 'cache', 'memory', 'nosql'],
     author: 'Mike Johnson',
     createdAt: '3 days ago',
-    thumbnail: '/src/assets/thumbnails/redis-cache.png',
+    thumbnail: '/assets/thumbnails/redis-cache.png',
     dockerCompose: `version: '3.8'
 services:
   redis:
@@ -86,7 +86,7 @@ volumes:
     tags: ['mongodb', 'nosql', 'replica-set', 'cluster'],
     author: 'Sarah Wilson',
     createdAt: '5 days ago',
-    thumbnail: '/src/assets/thumbnails/mongodb-replica.png',
+    thumbnail: '/assets/thumbnails/mongodb-replica.png',
     dockerCompose: `version: '3.8'
 services:
   mongo1:
@@ -117,7 +117,7 @@ volumes:
     tags: ['nodejs', 'development', 'hot-reload', 'debugging'],
     author: 'Alex Chen',
     createdAt: '1 day ago',
-    thumbnail: '/src/assets/thumbnails/nodejs-dev.png',
+    thumbnail: '/assets/thumbnails/nodejs-dev.png',
     dockerCompose: `version: '3.8'
 services:
   app:
@@ -140,7 +140,7 @@ services:
     tags: ['prometheus', 'grafana', 'monitoring', 'metrics'],
     author: 'David Brown',
     createdAt: '1 week ago',
-    thumbnail: '/src/assets/thumbnails/prometheus-grafana.png',
+    thumbnail: '/assets/thumbnails/prometheus-grafana.png',
     dockerCompose: `version: '3.8'
 services:
   prometheus:
@@ -172,7 +172,7 @@ volumes:
     tags: ['kafka', 'zookeeper', 'streaming', 'messaging'],
     author: 'Lisa Garcia',
     createdAt: '4 days ago',
-    thumbnail: '/src/assets/thumbnails/kafka-cluster.png',
+    thumbnail: '/assets/thumbnails/kafka-cluster.png',
     dockerCompose: `version: '3.8'
 services:
   zookeeper:
@@ -201,7 +201,7 @@ services:
     tags: ['jenkins', 'ci-cd', 'automation', 'docker'],
     author: 'Tom Anderson',
     createdAt: '6 days ago',
-    thumbnail: '/src/assets/thumbnails/jenkins-cicd.png',
+    thumbnail: '/assets/thumbnails/jenkins-cicd.png',
     dockerCompose: `version: '3.8'
 services:
   jenkins:
@@ -226,7 +226,7 @@ volumes:
     tags: ['minio', 's3', 'object-storage', 'files'],
     author: 'Emma Davis',
     createdAt: '3 days ago',
-    thumbnail: '/src/assets/thumbnails/minio-storage.png',
+    thumbnail: '/assets/thumbnails/minio-storage.png',
     dockerCompose: `version: '3.8'
 services:
   minio:
@@ -252,7 +252,7 @@ volumes:
     tags: ['elasticsearch', 'logstash', 'kibana', 'logging'],
     author: 'Robert Taylor',
     createdAt: '1 week ago',
-    thumbnail: '/src/assets/thumbnails/elk-stack.png',
+    thumbnail: '/assets/thumbnails/elk-stack.png',
     dockerCompose: `version: '3.8'
 services:
   elasticsearch:
@@ -283,7 +283,7 @@ volumes:
     tags: ['mysql', 'phpmyadmin', 'database', 'sql'],
     author: 'Kevin Lee',
     createdAt: '2 days ago',
-    thumbnail: '/src/assets/thumbnails/mysql-phpmyadmin.png',
+    thumbnail: '/assets/thumbnails/mysql-phpmyadmin.png',
     dockerCompose: `version: '3.8'
 services:
   mysql:
@@ -318,7 +318,7 @@ volumes:
     tags: ['rabbitmq', 'message-broker', 'amqp', 'queue'],
     author: 'Maria Rodriguez',
     createdAt: '4 days ago',
-    thumbnail: '/src/assets/thumbnails/rabbitmq-broker.png',
+    thumbnail: '/assets/thumbnails/rabbitmq-broker.png',
     dockerCompose: `version: '3.8'
 services:
   rabbitmq:
