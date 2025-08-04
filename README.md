@@ -24,13 +24,13 @@ A modern starter template for building your own Docker Compose library. Comes wi
   - Storage (MinIO)
   - Development Tools
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Quick Start Options
 
 | Method | Best For | One-Click Deploy |
 |--------|----------|------------------|
-| **🐳 Docker Compose** | Production ready | `docker-compose up -d` |
+| **Docker Compose** | Production ready | `docker-compose up -d` |
 | **[Use as Template](https://github.com/Jpotter702/composeum/generate)** | Your own library | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Jpotter702/composeum) |
 | **[Fork Repository](https://github.com/Jpotter702/composeum/fork)** | Contributing back | Manual setup |
 | **Clone & Customize** | Complete control | Manual setup |
