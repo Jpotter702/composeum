@@ -1,8 +1,17 @@
 {
-  "name": "docker-compose-library",
+  "name": "composeum-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern, curated collection of reusable Docker Compose configurations - Template Repository",
+  "keywords": ["docker", "compose", "template", "starter", "containers", "devops"],
+  "homepage": "https://github.com/jpotter702/composeum",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpotter702/composeum"
+  },
+  "author": "Jason Potter",
+  "template": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",

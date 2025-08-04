@@ -1,0 +1,16 @@
+#!/bin/bash
+# Template cleanup script
+# This file helps users customize the template after creation
+
+echo "🎉 Welcome to Composeum - Docker Compose Library Template!"
+echo ""
+echo "Next steps to customize your library:"
+echo "1. Update README.md with your project details"
+echo "2. Replace configurations in src/data/sampleData.js"
+echo "3. Add your own thumbnails to public/assets/thumbnails/"
+echo "4. Update package.json name and description"
+echo "5. Deploy to Vercel or your preferred platform"
+echo ""
+echo "📖 See DEPLOYMENT.md for detailed instructions"
+echo ""
+echo "Happy containerizing! 🐳"

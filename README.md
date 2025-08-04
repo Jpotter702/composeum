@@ -1,6 +1,12 @@
-# Composeum - Docker Compose Library
+# Composeum - Docker Compose Library v1.0
+
+[![GitHub release](https://img.shields.io/github/release/jpotter702/composeum.svg)](https://github.com/jpotter702/composeum/releases)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jpotter702/composeum)
+[![Use this template](https://img.shields.io/badge/Use%20this-Template-blue?logo=github)](https://github.com/jpotter702/composeum/generate)
 
 A modern, curated collection of reusable Docker Compose configurations for developers. Quickly find, copy, and deploy popular development stacks with ease.
+
+> 🎯 **Ready to use as a starter template!** See our [Deployment Guide](DEPLOYMENT.md) for multiple ways to get started.
 
 ## 🌟 Features
 
@@ -17,9 +23,20 @@ A modern, curated collection of reusable Docker Compose configurations for devel
   - 💾 Storage (MinIO)
   - 🛠️ Development Tools
 
-## 🚀 Live Demo
+## 🚀 Getting Started
 
-Visit the live application: [Composeum](https://your-vercel-url.vercel.app)
+### Quick Start Options
+
+| Method | Best For | One-Click Deploy |
+|--------|----------|------------------|
+| **[Use as Template](https://github.com/jpotter702/composeum/generate)** | Your own library | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jpotter702/composeum) |
+| **[Fork Repository](https://github.com/jpotter702/composeum/fork)** | Contributing back | Manual setup |
+| **Clone & Customize** | Complete control | Manual setup |
+
+📖 **Detailed Instructions**: See our comprehensive [Deployment Guide](DEPLOYMENT.md)
+
+### Live Demo
+Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 
 ## 🛠️ Tech Stack
 
@@ -54,21 +71,28 @@ Visit the live application: [Composeum](https://your-vercel-url.vercel.app)
 4. **Open your browser**
    Navigate to `http://localhost:5173`
 
-## 🏗️ Build & Deploy
+## 🏗️ Quick Development Setup
 
-### Local Build
 ```bash
-pnpm build
-pnpm preview
+# Clone (or use template/fork)
+git clone https://github.com/jpotter702/composeum.git
+cd composeum
+
+# Install dependencies
+npm install  # or pnpm install
+
+# Start development server
+npm run dev  # or pnpm dev
 ```
 
-### Deploy to Vercel
-The project is configured for easy deployment on Vercel:
+### 🚀 Deploy Anywhere
 
-1. Fork this repository
-2. Connect your GitHub account to Vercel
-3. Import the project
-4. Deploy automatically with the included `vercel.json` configuration
+- **Vercel**: One-click deploy with the button above
+- **Netlify**: `npm run build` → upload `dist/` folder
+- **GitHub Pages**: See [Deployment Guide](DEPLOYMENT.md)
+- **Other platforms**: Standard static site deployment
+
+📋 **Full deployment instructions**: [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## 📁 Project Structure
 
