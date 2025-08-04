@@ -3,12 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "A modern, curated collection of reusable Docker Compose configurations - Template Repository",
+  "description": "A modern starter template for building Docker Compose libraries - includes example configurations to get you started",
   "keywords": ["docker", "compose", "template", "starter", "containers", "devops"],
-  "homepage": "https://github.com/jpotter702/composeum",
+  "homepage": "https://github.com/Jpotter702/composeum",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpotter702/composeum"
+    "url": "https://github.com/Jpotter702/composeum"
   },
   "author": "Jason Potter",
   "template": true,

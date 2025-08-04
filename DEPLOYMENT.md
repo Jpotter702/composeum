@@ -28,7 +28,7 @@ Choose the method that best fits your needs:
 **Best for**: Creating your own independent Docker Compose library
 
 ### Step 1: Create from Template
-1. Visit the [Composeum repository](https://github.com/jpotter702/composeum)
+1. Visit the [Composeum repository](https://github.com/Jpotter702/composeum)
 2. Click the **"Use this template"** button (green button near the top)
 3. Select **"Create a new repository"**
 4. Choose your repository name (e.g., `my-docker-library`)
@@ -81,7 +81,7 @@ git clone https://github.com/YOUR_USERNAME/composeum.git
 cd composeum
 
 # Add upstream remote for updates
-git remote add upstream https://github.com/jpotter702/composeum.git
+git remote add upstream https://github.com/Jpotter702/composeum.git
 ```
 
 ### Step 3: Keep Your Fork Updated
@@ -103,7 +103,7 @@ git push origin main
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/jpotter702/composeum.git
+git clone https://github.com/Jpotter702/composeum.git
 cd composeum
 
 # Remove original git history (optional)
@@ -347,8 +347,8 @@ npm install
 - Check deployment platform environment settings
 
 ### Getting Help
-- Check the [GitHub Issues](https://github.com/jpotter702/composeum/issues)
-- Review [GitHub Discussions](https://github.com/jpotter702/composeum/discussions)
+- Check the [GitHub Issues](https://github.com/Jpotter702/composeum/issues)
+- Review [GitHub Discussions](https://github.com/Jpotter702/composeum/discussions)
 - Read the [main README](README.md)
 
 ## 📝 Next Steps

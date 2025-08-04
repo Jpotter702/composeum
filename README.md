@@ -1,16 +1,17 @@
 # Composeum - Docker Compose Library v1.0
 
-[![GitHub release](https://img.shields.io/github/release/jpotter702/composeum.svg)](https://github.com/jpotter702/composeum/releases)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jpotter702/composeum)
-[![Use this template](https://img.shields.io/badge/Use%20this-Template-blue?logo=github)](https://github.com/jpotter702/composeum/generate)
+[![GitHub release](https://img.shields.io/github/release/Jpotter702/composeum.svg)](https://github.com/Jpotter702/composeum/releases)
+[![Use this template](https://img.shields.io/badge/Use%20this-Template-blue?logo=github)](https://github.com/Jpotter702/composeum/generate)
 
-A modern, curated collection of reusable Docker Compose configurations for developers. Quickly find, copy, and deploy popular development stacks with ease.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Jpotter702/composeum)
+
+A modern starter template for building your own Docker Compose library. Comes with example configurations to get you started - customize, replace, or remove them to build your own collection.
 
 > 🎯 **Ready to use as a starter template!** See our [Deployment Guide](DEPLOYMENT.md) for multiple ways to get started.
 
 ## 🌟 Features
 
-- **Curated Collection**: Hand-picked Docker Compose configurations for popular development stacks
+- **Template Ready**: Complete starter template with example Docker Compose configurations
 - **Easy Search & Filter**: Find configurations by category, tags, or technology
 - **One-Click Copy**: Copy Docker Compose files directly to your clipboard
 - **Beautiful UI**: Modern, responsive interface built with React and Tailwind CSS
@@ -29,8 +30,8 @@ A modern, curated collection of reusable Docker Compose configurations for devel
 
 | Method | Best For | One-Click Deploy |
 |--------|----------|------------------|
-| **[Use as Template](https://github.com/jpotter702/composeum/generate)** | Your own library | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jpotter702/composeum) |
-| **[Fork Repository](https://github.com/jpotter702/composeum/fork)** | Contributing back | Manual setup |
+| **[Use as Template](https://github.com/Jpotter702/composeum/generate)** | Your own library | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Jpotter702/composeum) |
+| **[Fork Repository](https://github.com/Jpotter702/composeum/fork)** | Contributing back | Manual setup |
 | **Clone & Customize** | Complete control | Manual setup |
 
 📖 **Detailed Instructions**: See our comprehensive [Deployment Guide](DEPLOYMENT.md)
@@ -50,7 +51,7 @@ Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/jpotter702/composeum.git
+   git clone https://github.com/Jpotter702/composeum.git
    cd composeum
    ```
 
@@ -75,7 +76,7 @@ Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 
 ```bash
 # Clone (or use template/fork)
-git clone https://github.com/jpotter702/composeum.git
+git clone https://github.com/Jpotter702/composeum.git
 cd composeum
 
 # Install dependencies
@@ -116,7 +117,9 @@ composeum/
 └── package.json
 ```
 
-## 🎨 Available Configurations
+## 🎨 Example Configurations
+
+> 💡 **Note**: These are example configurations included with the template. You can customize, replace, or remove them to build your own Docker Compose library.
 
 ### Databases
 - **PostgreSQL + pgAdmin** - Complete database setup with web interface
@@ -188,8 +191,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have questions or need help:
 
-- Open an [issue](https://github.com/jpotter702/composeum/issues) on GitHub
-- Start a [discussion](https://github.com/jpotter702/composeum/discussions)
+- Open an [issue](https://github.com/Jpotter702/composeum/issues) on GitHub
+- Start a [discussion](https://github.com/Jpotter702/composeum/discussions)
 
 ---
 
