@@ -5,6 +5,7 @@ This guide covers multiple ways to deploy and use Composeum as a starter templat
 ## 📋 Table of Contents
 
 - [Quick Start Options](#quick-start-options)
+- [Docker Compose Deployment](#docker-compose-deployment-recommended)
 - [Method 1: Use as GitHub Template](#method-1-use-as-github-template-recommended)
 - [Method 2: Fork the Repository](#method-2-fork-the-repository)
 - [Method 3: Clone and Customize](#method-3-clone-and-customize)
@@ -19,11 +20,196 @@ Choose the method that best fits your needs:
 
 | Method | Best For | Maintains Connection | Easy Updates |
 |--------|----------|---------------------|--------------|
+| **🐳 Docker** | Production deployment | N/A | ✅ |
 | **Template** | Creating your own library | ❌ | ❌ |
 | **Fork** | Contributing back | ✅ | ✅ (via PR) |
 | **Clone** | Complete customization | ❌ | ❌ |
 
-## Method 1: Use as GitHub Template (Recommended)
+## 🐳 Docker Compose Deployment (Recommended)
+
+**Best for**: Production deployment, easy setup, containerized environment
+
+Composeum supports Docker Compose deployment for both production and development environments. This is the fastest way to get Composeum running!
+
+### Prerequisites
+- Docker (20.10+)
+- Docker Compose (2.0+)
+- Git
+
+### Production Deployment
+
+**Step 1: Clone and Deploy**
+```bash
+# Clone the repository
+git clone https://github.com/Jpotter702/composeum.git
+cd composeum
+
+# Start production deployment
+docker-compose up -d
+
+# Access the application
+open http://localhost:3000
+```
+
+**What this does:**
+- Builds the React application using multi-stage Docker build
+- Serves the app via Nginx with optimized configuration
+- Includes optional Traefik reverse proxy for production use
+- Runs on port 3000 by default
+
+**Step 2: Verify Deployment**
+```bash
+# Check running containers
+docker-compose ps
+
+# View logs
+docker-compose logs -f composeum
+
+# Stop the deployment
+docker-compose down
+```
+
+### Development Deployment
+
+**For development with hot reloading:**
+```bash
+# Start development environment
+docker-compose -f docker-compose.dev.yml up -d
+
+# Access the development server
+open http://localhost:5173
+
+# View development logs
+docker-compose -f docker-compose.dev.yml logs -f
+```
+
+**Development features:**
+- Hot reloading for code changes
+- Volume mounting for live file updates
+- Development server with Vite
+- Runs on port 5173 (Vite default)
+
+### Advanced Production Setup
+
+**With Traefik Reverse Proxy:**
+```bash
+# Start with Traefik for load balancing and SSL
+docker-compose --profile production up -d
+
+# Access via Traefik dashboard
+open http://localhost:8080  # Traefik dashboard
+open http://localhost       # Main application
+```
+
+**Custom Environment Variables:**
+```bash
+# Create environment file
+echo 'NODE_ENV=production' > .env
+echo 'COMPOSE_PROJECT_NAME=my-composeum' >> .env
+
+# Deploy with custom config
+docker-compose up -d
+```
+
+### Docker Deployment Commands
+
+```bash
+# Production deployment
+docker-compose up -d                    # Start in background
+docker-compose up                       # Start with logs
+docker-compose down                     # Stop all services
+docker-compose down -v                  # Stop and remove volumes
+
+# Development deployment
+docker-compose -f docker-compose.dev.yml up -d
+docker-compose -f docker-compose.dev.yml down
+
+# Rebuild containers
+docker-compose build --no-cache         # Force rebuild
+docker-compose up -d --build            # Rebuild and start
+
+# View logs
+docker-compose logs                     # All logs
+docker-compose logs -f composeum        # Follow specific service
+docker-compose logs --tail=100          # Last 100 lines
+```
+
+### Customizing Docker Deployment
+
+**Custom Ports:**
+```yaml
+# docker-compose.override.yml
+version: '3.8'
+services:
+  composeum:
+    ports:
+      - "8080:80"  # Use port 8080 instead of 3000
+```
+
+**Custom Environment:**
+```yaml
+# docker-compose.override.yml
+version: '3.8'
+services:
+  composeum:
+    environment:
+      - NODE_ENV=production
+      - VITE_APP_TITLE=My Custom Library
+```
+
+**SSL/HTTPS Setup:**
+See [DOCKER.md](DOCKER.md) for complete SSL configuration with Traefik.
+
+### Troubleshooting Docker Deployment
+
+**Common Issues:**
+
+1. **Port already in use**
+   ```bash
+   # Check what's using the port
+   lsof -i :3000
+   
+   # Use different port
+   docker-compose up -d -p 3001:80
+   ```
+
+2. **Permission errors**
+   ```bash
+   # Fix Docker permissions (Linux)
+   sudo usermod -aG docker $USER
+   newgrp docker
+   ```
+
+3. **Build failures**
+   ```bash
+   # Clean rebuild
+   docker-compose down
+   docker system prune -f
+   docker-compose build --no-cache
+   docker-compose up -d
+   ```
+
+4. **Container won't start**
+   ```bash
+   # Check logs for errors
+   docker-compose logs composeum
+   
+   # Check container status
+   docker-compose ps
+   ```
+
+### Docker Deployment Benefits
+
+✅ **Consistent Environment**: Same setup across all machines  
+✅ **Easy Scaling**: Add more containers with `docker-compose scale`  
+✅ **Isolated Dependencies**: No conflicts with host system  
+✅ **Production Ready**: Nginx + optimized React build  
+✅ **Development Friendly**: Hot reload support  
+✅ **Reverse Proxy Ready**: Optional Traefik integration  
+
+📖 **For complete Docker documentation**: See [DOCKER.md](DOCKER.md)
+
+## Method 1: Use as GitHub Template
 
 **Best for**: Creating your own independent Docker Compose library
 

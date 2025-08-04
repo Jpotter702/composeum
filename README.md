@@ -7,22 +7,22 @@
 
 A modern starter template for building your own Docker Compose library. Comes with example configurations to get you started - customize, replace, or remove them to build your own collection.
 
-> 🎯 **Ready to use as a starter template!** See our [Deployment Guide](DEPLOYMENT.md) for multiple ways to get started.
+> **Ready to use as a starter template!** See our [Deployment Guide](DEPLOYMENT.md) for multiple ways to get started.
 
-## 🌟 Features
+## Features
 
 - **Template Ready**: Complete starter template with example Docker Compose configurations
 - **Easy Search & Filter**: Find configurations by category, tags, or technology
 - **One-Click Copy**: Copy Docker Compose files directly to your clipboard
 - **Beautiful UI**: Modern, responsive interface built with React and Tailwind CSS
 - **Categories Include**:
-  - 🗄️ Databases (PostgreSQL, MySQL, MongoDB, Redis)
-  - 🌐 Web Servers (Nginx, Apache)
-  - 📊 Monitoring (Prometheus + Grafana, ELK Stack)
-  - 🔄 CI/CD (Jenkins)
-  - 📨 Message Queues (RabbitMQ, Apache Kafka)
-  - 💾 Storage (MinIO)
-  - 🛠️ Development Tools
+  - Databases (PostgreSQL, MySQL, MongoDB, Redis)
+  - Web Servers (Nginx, Apache)
+  - Monitoring (Prometheus + Grafana, ELK Stack)
+  - CI/CD (Jenkins)
+  - Message Queues (RabbitMQ, Apache Kafka)
+  - Storage (MinIO)
+  - Development Tools
 
 ## 🚀 Getting Started
 
@@ -30,16 +30,17 @@ A modern starter template for building your own Docker Compose library. Comes wi
 
 | Method | Best For | One-Click Deploy |
 |--------|----------|------------------|
+| **🐳 Docker Compose** | Production ready | `docker-compose up -d` |
 | **[Use as Template](https://github.com/Jpotter702/composeum/generate)** | Your own library | [![Deploy](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Jpotter702/composeum) |
 | **[Fork Repository](https://github.com/Jpotter702/composeum/fork)** | Contributing back | Manual setup |
 | **Clone & Customize** | Complete control | Manual setup |
 
-📖 **Detailed Instructions**: See our comprehensive [Deployment Guide](DEPLOYMENT.md)
+**Detailed Instructions**: See our comprehensive [Deployment Guide](DEPLOYMENT.md)
 
 ### Live Demo
 Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 19, TypeScript
 - **Styling**: Tailwind CSS, Radix UI
@@ -47,7 +48,7 @@ Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 - **Deployment**: Vercel
 - **Package Manager**: pnpm
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -72,7 +73,32 @@ Visit the live application: [Composeum Demo](https://your-vercel-url.vercel.app)
 4. **Open your browser**
    Navigate to `http://localhost:5173`
 
-## 🏗️ Quick Development Setup
+## Docker Compose Deployment (Recommended)
+
+**Production Ready**: Deploy Composeum itself using Docker Compose - a meta achievement!
+
+```bash
+# Clone the repository
+git clone https://github.com/Jpotter702/composeum.git
+cd composeum
+
+# Start production deployment
+docker-compose up -d
+
+# Access at http://localhost:3000
+```
+
+**Development with Hot Reload**:
+```bash
+# Start development environment
+docker-compose -f docker-compose.dev.yml up -d
+
+# Access at http://localhost:5173
+```
+
+**Complete Docker guide**: [DOCKER.md](DOCKER.md)
+
+## Local Development Setup
 
 ```bash
 # Clone (or use template/fork)
@@ -86,17 +112,18 @@ npm install  # or pnpm install
 npm run dev  # or pnpm dev
 ```
 
-### 🚀 Deploy Anywhere
+### Deploy Anywhere
 
-- **🐳 Docker**: `docker-compose up -d` → `http://localhost:3000`
+- **Docker Compose**: `docker-compose up -d` → `http://localhost:3000` (Production)
+- **Docker Dev**: `docker-compose -f docker-compose.dev.yml up -d` → `http://localhost:5173`
 - **Vercel**: One-click deploy with the button above
 - **Netlify**: `npm run build` → upload `dist/` folder
 - **GitHub Pages**: See [Deployment Guide](DEPLOYMENT.md)
 - **Other platforms**: Standard static site deployment
 
-📋 **Full deployment instructions**: [DEPLOYMENT.md](DEPLOYMENT.md) | 🐳 **Docker guide**: [DOCKER.md](DOCKER.md)
+**Full deployment instructions**: [DEPLOYMENT.md](DEPLOYMENT.md)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 composeum/
@@ -118,9 +145,9 @@ composeum/
 └── package.json
 ```
 
-## 🎨 Example Configurations
+## Example Configurations
 
-> 💡 **Note**: These are example configurations included with the template. You can customize, replace, or remove them to build your own Docker Compose library.
+> **Note**: These are example configurations included with the template. You can customize, replace, or remove them to build your own Docker Compose library.
 
 ### Databases
 - **PostgreSQL + pgAdmin** - Complete database setup with web interface
@@ -147,7 +174,7 @@ composeum/
 ### Storage
 - **MinIO** - S3-compatible object storage
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
@@ -176,11 +203,11 @@ When adding new Docker Compose configurations, please ensure:
 - **Security**: Use secure default passwords (document them clearly)
 - **Best Practices**: Follow Docker Compose best practices
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Docker](https://docker.com) for containerization technology
 - [React](https://reactjs.org) for the amazing frontend library
@@ -188,7 +215,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Radix UI](https://radix-ui.com) for accessible component primitives
 - [Vercel](https://vercel.com) for seamless deployment
 
-## 📞 Support
+## Support
 
 If you have questions or need help:
 
@@ -197,4 +224,4 @@ If you have questions or need help:
 
 ---
 
-Made with ❤️ for the developer community. Happy containerizing! 🐳
+Made with for the developer community. Happy Docker Composing (v2)!

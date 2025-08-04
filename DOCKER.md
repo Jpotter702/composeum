@@ -1,8 +1,8 @@
-# 🐳 Docker Deployment Guide
+# Docker Deployment Guide
 
 This document covers how to deploy Composeum using Docker and Docker Compose - because a Docker Compose library should definitely run on Docker Compose!
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Production Deployment
 ```bash
@@ -22,7 +22,7 @@ docker-compose -f docker-compose.dev.yml up
 open http://localhost:5173
 ```
 
-## 📋 Available Configurations
+## Available Configurations
 
 ### 1. Production Setup (`docker-compose.yml`)
 - **Multi-stage build** with Node.js and Nginx
@@ -49,7 +49,7 @@ open http://localhost:8080
 open http://localhost
 ```
 
-## 🛠️ Detailed Setup
+## Detailed Setup
 
 ### Prerequisites
 - Docker 20.10+
@@ -116,7 +116,7 @@ VITE_APP_DESCRIPTION="Custom Docker Compose configurations"
    docker-compose -f docker-compose.dev.yml logs -f
    ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### Production Build Process
 ```
@@ -139,7 +139,7 @@ With Traefik:
 Internet → Traefik (Port 80) → composeum-network → composeum-app (Port 80)
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Custom Domain
 Update `docker-compose.yml` Traefik labels:
@@ -179,7 +179,7 @@ deploy:
       cpus: '0.25'
 ```
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -235,7 +235,7 @@ node_modules
 docker-compose*.yml
 ```
 
-## 📊 Monitoring
+## Monitoring
 
 ### Health Checks
 Add to your `docker-compose.yml`:
@@ -266,7 +266,7 @@ docker stats composeum-app
 docker inspect composeum-app
 ```
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### VPS/Server Deployment
 1. **Setup Docker on server**
@@ -289,7 +289,7 @@ For Kubernetes deployment, consider:
 - Using Helm charts
 - Setting up ingress controllers
 
-## 📝 Maintenance
+## Maintenance
 
 ### Updates
 ```bash
