@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  composeum-dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: composeum-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
+      - VITE_PORT=5173
+    networks:
+      - composeum-dev-network
+    command: pnpm dev
+
+networks:
+  composeum-dev-network:
+    driver: bridge

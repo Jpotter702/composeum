@@ -1,6 +1,6 @@
 # Composeum - Docker Compose Library v1.0
 
-[![GitHub release](https://img.shields.io/github/release/Jpotter702/composeum.svg)](https://github.com/Jpotter702/composeum/releases)
+[![GitHub stars](https://img.shields.io/github/stars/Jpotter702/composeum?style=flat-square)](https://github.com/Jpotter702/composeum/stargazers)
 [![Use this template](https://img.shields.io/badge/Use%20this-Template-blue?logo=github)](https://github.com/Jpotter702/composeum/generate)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Jpotter702/composeum)
@@ -88,12 +88,13 @@ npm run dev  # or pnpm dev
 
 ### 🚀 Deploy Anywhere
 
+- **🐳 Docker**: `docker-compose up -d` → `http://localhost:3000`
 - **Vercel**: One-click deploy with the button above
 - **Netlify**: `npm run build` → upload `dist/` folder
 - **GitHub Pages**: See [Deployment Guide](DEPLOYMENT.md)
 - **Other platforms**: Standard static site deployment
 
-📋 **Full deployment instructions**: [DEPLOYMENT.md](DEPLOYMENT.md)
+📋 **Full deployment instructions**: [DEPLOYMENT.md](DEPLOYMENT.md) | 🐳 **Docker guide**: [DOCKER.md](DOCKER.md)
 
 ## 📁 Project Structure
 
