@@ -3,6 +3,7 @@ import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 import { ComposeCard } from './components/ComposeCard'
 import { AddComposeModal } from './components/AddComposeModal'
+import { ComposeViewer } from './components/ComposeViewer'
 import { sampleComposes } from './data/sampleData'
 import './App.css'
 
@@ -12,6 +13,8 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isAddModalOpen, setIsAddModalOpen] = useState(false)
   const [composes, setComposes] = useState(sampleComposes)
+  const [selectedCompose, setSelectedCompose] = useState(null)
+  const [modalMode, setModalMode] = useState('view')
 
   // Calculate category counts dynamically
   const categories = [
@@ -41,8 +44,31 @@ function App() {
     setComposes(prev => [newCompose, ...prev])
   }
 
+  const handleUpdateCompose = (updatedCompose) => {
+    setComposes(prev => 
+      prev.map(compose => 
+        compose.id === updatedCompose.id ? updatedCompose : compose
+      )
+    )
+    setSelectedCompose(null) // Close modal after update
+  }
+
+  const handleViewCompose = (compose) => {
+    setSelectedCompose(compose)
+    setModalMode('view')
+  }
+
+  const handleEditCompose = (compose) => {
+    setSelectedCompose(compose)
+    setModalMode('edit')
+  }
+
+  const handleCloseModal = () => {
+    setSelectedCompose(null)
+  }
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${selectedCompose ? 'blur-sm' : ''}`}>
       <Header 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -72,19 +98,22 @@ function App() {
           </div>
           
           {filteredComposes.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground">🔍</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">No compose files found</h3>
-              <p className="text-muted-foreground">
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <p className="text-muted-foreground">No compose files found.</p>
+              <p className="text-sm text-muted-foreground mt-1">
                 Try adjusting your search terms or browse different categories
               </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredComposes.map((compose) => (
-                <ComposeCard key={compose.id} compose={compose} />
+                <ComposeCard 
+                  key={compose.id} 
+                  compose={compose} 
+                  onUpdate={handleUpdateCompose}
+                  onView={handleViewCompose}
+                  onEdit={handleEditCompose}
+                />
               ))}
             </div>
           )}
@@ -96,6 +125,17 @@ function App() {
         onClose={() => setIsAddModalOpen(false)}
         onAdd={handleAddCompose}
       />
+
+      {/* Global Modal */}
+      {selectedCompose && (
+        <ComposeViewer
+          compose={selectedCompose}
+          isOpen={!!selectedCompose}
+          onClose={handleCloseModal}
+          onSave={handleUpdateCompose}
+          mode={modalMode}
+        />
+      )}
     </div>
   )
 }
