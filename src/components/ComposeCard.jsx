@@ -1,15 +1,22 @@
-import { Copy, Download, ExternalLink, Heart } from 'lucide-react'
+import { ExternalLink, Pencil, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
-export function ComposeCard({ compose }) {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(compose.dockerCompose)
+export function ComposeCard({ compose, onUpdate, onView, onEdit }) {
+  const handleView = (e) => {
+    e.stopPropagation()
+    onView(compose)
+  }
+  
+  const handleEdit = (e) => {
+    e.stopPropagation()
+    onEdit(compose)
   }
 
   return (
-    <Card className="group overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
+    <>
+      <Card className="group overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <h3 className="font-semibold text-lg leading-tight">{compose.title}</h3>
@@ -40,14 +47,24 @@ export function ComposeCard({ compose }) {
           )}
           
           {/* Overlay with actions */}
-          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-            <Button size="sm" variant="secondary" onClick={handleCopy}>
-              <Copy className="h-3 w-3 mr-1" />
-              Copy
-            </Button>
-            <Button size="sm" variant="secondary">
-              <ExternalLink className="h-3 w-3 mr-1" />
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-2">
+            <Button 
+              size="sm" 
+              variant="secondary"
+              className="flex-1 max-w-[100px]"
+              onClick={handleView}
+            >
+              <ExternalLink className="h-3 w-3 mr-1.5" />
               View
+            </Button>
+            <Button 
+              size="sm" 
+              variant="secondary"
+              className="flex-1 max-w-[100px]"
+              onClick={handleEdit}
+            >
+              <Pencil className="h-3 w-3 mr-1.5" />
+              Edit
             </Button>
           </div>
         </div>
@@ -75,7 +92,9 @@ export function ComposeCard({ compose }) {
           ))}
         </div>
       </CardFooter>
-    </Card>
+      
+      </Card>
+    </>
   )
 }
 
