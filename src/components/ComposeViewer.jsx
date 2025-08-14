@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Save, Download, Pencil } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -19,11 +19,45 @@ const highlightYaml = (yaml) => {
 export function ComposeViewer({ compose, isOpen, onClose, onSave, mode = 'view' }) {
   const [isEditing, setIsEditing] = useState(mode === 'edit');
   const [editedCompose, setEditedCompose] = useState(compose);
+  const modalRef = useRef(null);
+  const previouslyFocusedElementRef = useRef(null);
 
   useEffect(() => {
     setEditedCompose(compose);
     setIsEditing(mode === 'edit');
   }, [compose, mode]);
+
+  // Focus management and body scroll lock
+  useEffect(() => {
+    if (isOpen) {
+      // Store the currently focused element
+      previouslyFocusedElementRef.current = document.activeElement;
+      
+      // Lock body scroll
+      document.body.style.overflow = 'hidden';
+      
+      // Focus the modal
+      const focusModal = () => {
+        if (modalRef.current) {
+          modalRef.current.focus();
+        }
+      };
+      
+      // Use a small delay to ensure modal is rendered
+      const timeoutId = setTimeout(focusModal, 100);
+      
+      return () => {
+        clearTimeout(timeoutId);
+        // Restore body scroll
+        document.body.style.overflow = 'unset';
+        
+        // Restore focus to previously focused element
+        if (previouslyFocusedElementRef.current) {
+          previouslyFocusedElementRef.current.focus();
+        }
+      };
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -40,6 +74,30 @@ export function ComposeViewer({ compose, isOpen, onClose, onSave, mode = 'view' 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+    
+    // Focus trap logic
+    if (e.key === 'Tab' && modalRef.current) {
+      const focusableElements = modalRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement?.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement?.focus();
+      }
     }
   };
   
@@ -60,12 +118,25 @@ export function ComposeViewer({ compose, isOpen, onClose, onSave, mode = 'view' 
   };
 
   const modalContent = (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={handleBackdropClick}>
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-background rounded-lg shadow-2xl flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" 
+      onClick={handleBackdropClick}
+      onKeyDown={handleKeyDown}
+    >
+      <div 
+        ref={modalRef}
+        className="relative w-full max-w-4xl max-h-[90vh] bg-background rounded-lg shadow-2xl flex flex-col overflow-hidden" 
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        tabIndex={-1}
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center space-x-3">
-            <h2 className="text-xl font-semibold">
+            <h2 id="modal-title" className="text-xl font-semibold">
               {isEditing ? 'Edit Compose' : compose.title}
             </h2>
             <Badge variant="outline" className="text-xs">
@@ -103,7 +174,7 @@ export function ComposeViewer({ compose, isOpen, onClose, onSave, mode = 'view' 
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-auto p-6">
+        <div id="modal-description" className="flex-1 overflow-auto p-6">
           {isEditing ? (
             <div className="space-y-6">
               <div className="space-y-2">

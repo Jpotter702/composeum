@@ -68,7 +68,11 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen bg-background ${selectedCompose ? 'blur-sm' : ''}`}>
+    <div 
+      className="min-h-screen bg-background"
+      aria-hidden={!!selectedCompose}
+      inert={selectedCompose ? '' : undefined}
+    >
       <Header 
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
