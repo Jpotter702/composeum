@@ -114,7 +114,6 @@ function App() {
                 <ComposeCard 
                   key={compose.id} 
                   compose={compose} 
-                  onUpdate={handleUpdateCompose}
                   onView={handleViewCompose}
                   onEdit={handleEditCompose}
                 />

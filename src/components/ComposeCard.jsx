@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
-export function ComposeCard({ compose, onUpdate, onView, onEdit }) {
+export function ComposeCard({ compose, onView, onEdit }) {
   const handleView = (e) => {
     e.stopPropagation()
     onView(compose)
